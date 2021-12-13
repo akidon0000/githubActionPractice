@@ -5,8 +5,8 @@ on: [push] # git push をトリガーとする
 jobs:
   build:
     runs-on: macos-11
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
+#    env:
+#      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
       
     steps:
     # ソースコードを取得する
