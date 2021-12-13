@@ -3,47 +3,61 @@ name: CI
 on: [push] # git push をトリガーとする
 
 jobs:
-  build:
-
+    build:
+    
     runs-on: macos-11
-
+    
     steps:
     - uses: actions/checkout@v1 # ソースコードをcheckout
-    - name: Select Xcode version # Xcode 12.4 を使う
-      run: sudo xcode-select -s '/Applications/Xcode_13.1.app/Contents/Developer'
+    - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_13.1.app'
     - name: Show Xcode version
-      run: xcodebuild -version
+        run: xcodebuild -version
     - name: Build # シミュレーター向けにビルド
-      run: xcodebuild -sdk iphonesimulator -configuration Debug build
-      
-      
-  info:
+        run: set -o pipefail &&
+            xcodebuild
+            -sdk iphonesimulator
+            -configuration Debug
+            -workspace univIP.xcworkspace
+            build
+            | bundle exec xcpretty
+    - name: Xcode test
+        run: set -o pipefail &&
+            xcodebuild
+            -sdk iphonesimulator
+            -configuration Debug
+            -workspace univIP.xcworkspace
+            -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+            clean test
+            | bundle exec xcpretty --report html
+    
+    info:
     runs-on: macos-11
-
+    
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
-
+    
     # Xcodeの一覧出力
     - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
-
+        run: ls /Applications | grep 'Xcode'
+    
     # Xcodeのバージョン出力
     - name: Show Xcode version
-      run: xcodebuild -version
-
+        run: xcodebuild -version
+    
     # Makeのバージョン出力
     - name: Show Make version
-      run: make --version
-
+        run: make --version
+    
     # Rubyのバージョン出力
     - name: Show Ruby version
-      run: ruby --version
-
+        run: ruby --version
+    
     # Bundlerのバージョン出力
     - name: Show Bundler version
-      run: bundle version
-
+        run: bundle version
+    
     # 端末の一覧出力
     - name: Show devices
-      run: make show-devices
+        run: make show-devices
