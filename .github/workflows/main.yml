@@ -19,6 +19,7 @@ jobs:
       
     # シミュレーター向けにビルド
     - name: Build
+      -scheme univIP
       run: xcodebuild -sdk iphonesimulator -configuration Debug build
 
 #    # CocoaPods
