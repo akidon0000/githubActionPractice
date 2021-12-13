@@ -3,9 +3,8 @@ name: CI
 on: [push] # git push をトリガーとする
 
 jobs:
-    build:
-    
-    runs-on: macos-latest
+  build:
+    runs-on: macos-11
     
     steps:
     # ソースコードを取得する
