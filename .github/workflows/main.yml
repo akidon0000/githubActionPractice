@@ -67,4 +67,4 @@ jobs:
 
     # 端末の一覧出力
     - name: Show devices
-      run: make show-devices
+      run: xcrun xctrace list devices
