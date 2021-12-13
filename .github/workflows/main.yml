@@ -28,14 +28,21 @@ jobs:
         
     # テストする
     - name: Xcode test
-      run: xcodebuild
-        -sdk iphonesimulator
-        -configuration Debug
-        -scheme aruaru-lt-mobile-9-demo
-        -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
-        -skip-testing:aruaru-lt-mobile-9-demoUITests
-        clean test
-        | bundle exec xcpretty --report html
+      run:  set -o pipefail \
+            && NSUnbufferedIO=YES \
+            xcodebuild \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -project univIP \
+            -scheme univIP \
+            -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=15.0' \
+            -skip-testing:univIPUITests \
+            -clonedSourcePackagesDirPath './SourcePackages' \
+            -resultBundlePath 'TestResults.xcresult' \
+            clean test \
+            2>&1 \
+            | tee ./xcodebuild_test.log \
+            | Tools/univIPTools/.build/release/xcbeautify --is-ci
 
 
   info:
