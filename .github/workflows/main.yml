@@ -33,16 +33,16 @@ jobs:
             xcodebuild \
             -sdk iphonesimulator \
             -configuration Debug \
-            -project univIP \
-            -scheme univIP \
+            -project githubActionPractice \
+            -scheme githubActionPractice \
             -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=15.0' \
-            -skip-testing:univIPUITests \
+            -skip-testing:githubActionPracticeUITests \
             -clonedSourcePackagesDirPath './SourcePackages' \
             -resultBundlePath 'TestResults.xcresult' \
             clean test \
             2>&1 \
             | tee ./xcodebuild_test.log \
-            | Tools/univIPTools/.build/release/xcbeautify --is-ci
+            | Tools/githubActionPracticeTools/.build/release/xcbeautify --is-ci
 
 
   info:
