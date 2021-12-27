@@ -24,6 +24,6 @@ class githubActionPracticeTests: XCTestCase {
     func testIsDomeinCheck() {
         // 基本的なテスト
         let test1 = view.calc(num: 1)
-        XCTAssertEqual(test1, 2)
+        XCTAssertEqual(test1, 1)
     }
 }
