@@ -23,18 +23,18 @@ jobs:
     
     
       
-    # CocoaPodsをインストールする
-    - name: CocoaPods
-      run: pod install
-#      run: rm -rf ~/Library/Caches/CocoaPods/ | rm -rf Pods | pod install
+#    # CocoaPodsをインストールする
+#    - name: CocoaPods
+#      run: pod install
+##      run: rm -rf ~/Library/Caches/CocoaPods/ | rm -rf Pods | pod install
 
-#    - name: Cache CocoaPods files
-#      uses: actions/cache@preview
-#      with:
-#        path: Pods
-#        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-#        restore-keys: |
-#          ${{ runner.os }}-pods-
+    - name: Cache CocoaPods files
+      uses: actions/cache@preview
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
     
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild -sdk iphonesimulator -configuration Debug build
