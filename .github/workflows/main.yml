@@ -8,12 +8,19 @@ env:
 jobs:
   build:
     name: XcodeUnitTest   # job 名
-    runs-on: macos-latest     # 仮想環境指定（Windows Server, Ubuntu, Mac OSをサポートする）
+    runs-on: macos-11     # 仮想環境指定（Windows Server, Ubuntu, Mac OSをサポートする）
       
     steps:
     
     # ソースコードを取得する
     - uses: actions/checkout@v2
+    
+    - name: Build
+      run: swift build
+    
+    - name: Run tests
+      run: swift test
+        
     
     - name: Drivedata
       run: rm -rf ~/Library/Developer/Xcode/DerivedData/*
