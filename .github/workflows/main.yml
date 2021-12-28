@@ -7,7 +7,6 @@ on: [push] # git push をトリガーとする
 
 jobs:
   build:
-    name: XcodeUnitTest   # job 名
     runs-on: macos-11     # 仮想環境指定（Windows Server, Ubuntu, Mac OSをサポートする）
       
     steps:
