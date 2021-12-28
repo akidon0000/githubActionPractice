@@ -31,7 +31,12 @@ jobs:
       run: ls
 
     - name: Build # シミュレーター向けにビルド
-      run: xcodebuild -project githubActionPractice.xcworkspace -sdk iphonesimulator -configuration Debug build
+    run: xcodebuild
+         -sdk iphonesimulator
+         -configuration Debug
+         -workspace githubActionPractice.xcworkspace
+         -scheme githubActionPractice
+#      run: xcodebuild -project githubActionPractice.xcworkspace -sdk iphonesimulator -configuration Debug build
 
 
 #    # ビルドする
@@ -42,18 +47,18 @@ jobs:
 #        build
 #        | bundle exec xcpretty
 #
-#    # テストする
-#    - name: Xcode test
-#      run: set -o pipefail &&
-#        xcodebuild
-#        -sdk iphonesimulator
-#        -configuration Debug
-#        -workspace githubActionPractice.xcworkspace
-#        -scheme githubActionPractice
-#        -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
-#        -skip-testing:githubActionPracticeUITests
-#        clean test
-#        | bundle exec xcpretty --report html
+    # テストする
+    - name: Xcode test
+      run: set -o pipefail &&
+        xcodebuild
+        -sdk iphonesimulator
+        -configuration Debug
+        -workspace githubActionPractice.xcworkspace
+        -scheme githubActionPractice
+        -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+        -skip-testing:githubActionPracticeUITests
+        clean test
+        | bundle exec xcpretty --report html
         
 
 #
