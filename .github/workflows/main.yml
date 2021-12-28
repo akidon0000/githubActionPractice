@@ -18,8 +18,8 @@ jobs:
 #    - name: Select Xcode version # Xcode 12.4 を使う
 #      run: sudo xcode-select -s '/Applications/Xcode_13.2.1.app/Contents/Developer'
     
-    - name: Show Xcode version
-      run: xcodebuild -version
+#    - name: Show Xcode version
+#      run: xcodebuild -version
     
     
       
@@ -29,13 +29,16 @@ jobs:
 ##      run: rm -rf ~/Library/Caches/CocoaPods/ | rm -rf Pods | pod install
 
     - name: Cache CocoaPods files
-      uses: actions/cache@preview
+      uses: actions/cache@v2
       with:
         path: Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-pods-
-    
+    #    # CocoaPodsをインストールする
+    - name: CocoaPods
+      run: pod install
+
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild -sdk iphonesimulator -configuration Debug build
 
