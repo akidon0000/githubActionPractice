@@ -7,6 +7,7 @@ target 'githubActionPractice' do
 
   # Pods for githubActionPractice
   pod 'KeychainAccess' , '~> 4.2'
+  pod 'Alamofire', '~> 5.5'
 
   target 'githubActionPracticeTests' do
     inherit! :search_paths
