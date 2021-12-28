@@ -1,9 +1,10 @@
 name: CI
-# githubActionPractice
+
 on: [push] # git push をトリガーとする
 
-#env:
-#  DEVELOPER_DIR: /Applications/Xcode_13.2.1.app
+# 動作バージョンの指定
+env:
+ DEVELOPER_DIR: /Applications/Xcode_13.2.1.app
 
 
 
@@ -29,6 +30,8 @@ jobs:
       run: pod install
 
     # シミュレーター向けにビルド
+    # set -o pipefail (エラー発生時終了)
+    # bundle exec xcpretty --report html (エラー文を整形)
     - name: Xcode UnitTest
       run: set -o pipefail &&
           xcodebuild
@@ -40,48 +43,22 @@ jobs:
           -skip-testing:githubActionPracticeUITests
           clean test | bundle exec xcpretty --report html
 
-    # テストする
-    # - name: Xcode test
-    #   run: set -o pipefail &&
-    #     xcodebuild
-    #     -sdk iphonesimulator
-    #     -configuration Debug
-    #     -workspace githubActionPractice.xcworkspace
-    #     -scheme githubActionPractice
-    #     -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
-    #     -skip-testing:githubActionPracticeUITests
-    #     clean test
-    #     | bundle exec xcpretty --report html
 
+  info:
+    runs-on: macos-11
 
-#
-#  info:
-#    runs-on: macos-11
-#
-#    steps:
-#    # チェックアウト
-#    - uses: actions/checkout@v2
-#
-#    # Xcodeの一覧出力
-#    - name: Show Xcode list
-#      run: ls /Applications | grep 'Xcode'
-#
-#    # Xcodeのバージョン出力
-#    - name: Show Xcode version
-#      run: xcodebuild -version
-#
-#    # Makeのバージョン出力
-#    - name: Show Make version
-#      run: make --version
-#
-#    # Rubyのバージョン出力
-#    - name: Show Ruby version
-#      run: ruby --version
-#
-#    # Bundlerのバージョン出力
-#    - name: Show Bundler version
-#      run: bundle version
-#
-#    # 端末の一覧出力
-#    - name: Show devices
-#      run: xcrun xctrace list devices
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v1
+
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
+
+    # Xcodeのバージョン出力
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # 端末の一覧出力
+    - name: Show devices
+      run: xcrun xctrace list devices
