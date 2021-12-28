@@ -20,7 +20,7 @@ class githubActionPracticeTests: XCTestCase {
         super.tearDown()
     }
     
-    
+     
     func testIsDomeinCheck() {
         // 基本的なテスト
         let test1 = view.calc(num: 1)
