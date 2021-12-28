@@ -26,7 +26,7 @@ jobs:
     # CocoaPodsをインストールする
     - name: CocoaPods
       run: pod install
-      
+
 
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild
@@ -35,6 +35,8 @@ jobs:
           -workspace githubActionPractice.xcworkspace
           -scheme githubActionPractice
           -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+          -skip-testing:githubActionPracticeUITests
+          clean test
 
 #      run: xcodebuild -project githubActionPractice.xcworkspace -sdk iphonesimulator -configuration Debug build
 
