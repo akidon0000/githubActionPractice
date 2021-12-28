@@ -6,6 +6,7 @@ target 'githubActionPractice' do
   use_frameworks!
 
   # Pods for githubActionPractice
+  pod 'KeychainAccess' , '~> 4'
 
   target 'githubActionPracticeTests' do
     inherit! :search_paths
