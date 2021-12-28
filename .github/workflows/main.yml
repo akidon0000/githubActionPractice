@@ -22,9 +22,9 @@ jobs:
     # CocoaPodsをインストールする
     - name: CocoaPods
       run: |
-      rm -rf ~/Library/Caches/CocoaPods/
-      rm -rf Pods
-      pod install
+        rm -rf ~/Library/Caches/CocoaPods/
+        rm -rf Pods
+        pod install
     
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild -sdk iphonesimulator -configuration Debug build
