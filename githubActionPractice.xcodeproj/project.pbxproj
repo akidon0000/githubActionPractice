@@ -179,6 +179,7 @@
 				1A69FB7A27675CCC006A34C0 /* Sources */,
 				1A69FB7B27675CCC006A34C0 /* Frameworks */,
 				1A69FB7C27675CCC006A34C0 /* Resources */,
+				35B384E7D1AB6EC1D219BE3C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +217,7 @@
 				1A69FB9A27675CCF006A34C0 /* Sources */,
 				1A69FB9B27675CCF006A34C0 /* Frameworks */,
 				1A69FB9C27675CCF006A34C0 /* Resources */,
+				15ABA0677C1973718F3382A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +300,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15ABA0677C1973718F3382A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice-githubActionPracticeUITests/Pods-githubActionPractice-githubActionPracticeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice-githubActionPracticeUITests/Pods-githubActionPractice-githubActionPracticeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice-githubActionPracticeUITests/Pods-githubActionPractice-githubActionPracticeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35B384E7D1AB6EC1D219BE3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice/Pods-githubActionPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice/Pods-githubActionPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-githubActionPractice/Pods-githubActionPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5D699F29BCA641A76EA272FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

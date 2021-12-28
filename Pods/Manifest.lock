@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: 0afca9bc44fd4130a260a8bb94deb382ba8cc224
+PODS:
+  - KeychainAccess (4.2.2)
+
+DEPENDENCIES:
+  - KeychainAccess (~> 4)
+
+SPEC REPOS:
+  trunk:
+    - KeychainAccess
+
+SPEC CHECKSUMS:
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+
+PODFILE CHECKSUM: b73a07d474160268450d2f4f2f0155e735e1c250
 
 COCOAPODS: 1.11.2
