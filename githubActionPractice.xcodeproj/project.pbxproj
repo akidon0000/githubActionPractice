@@ -164,7 +164,6 @@
 				A1532E3B42319645F2722BD9 /* Pods-githubActionPracticeTests.debug.xcconfig */,
 				38B0D76A54D704AB3BB722D6 /* Pods-githubActionPracticeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

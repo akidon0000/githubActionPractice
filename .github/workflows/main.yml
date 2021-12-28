@@ -5,12 +5,13 @@ on: [push] # git push をトリガーとする
 #env:
 #  DEVELOPER_DIR: /Applications/Xcode_13.2.1.app
 
+
+
 jobs:
   build:
     runs-on: macos-11     # 仮想環境指定（Windows Server, Ubuntu, Mac OSをサポートする）
-      
+
     steps:
-    
     # ソースコードを取得する
     - uses: actions/checkout@v1
 
@@ -21,20 +22,22 @@ jobs:
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-pods-
-          
-    #    # CocoaPodsをインストールする
+
+    # CocoaPodsをインストールする
     - name: CocoaPods
       run: pod install
-      
+
     - name: show
       run: ls
 
     - name: Build # シミュレーター向けにビルド
-    run: xcodebuild
-         -sdk iphonesimulator
-         -configuration Debug
-         -workspace githubActionPractice.xcworkspace
-         -scheme githubActionPractice
+      run: xcodebuild
+          -sdk iphonesimulator
+          -configuration Debug
+          -workspace githubActionPractice.xcworkspace
+          -scheme githubActionPractice
+          -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+
 #      run: xcodebuild -project githubActionPractice.xcworkspace -sdk iphonesimulator -configuration Debug build
 
 
@@ -47,18 +50,18 @@ jobs:
 #        | bundle exec xcpretty
 #
     # テストする
-    - name: Xcode test
-      run: set -o pipefail &&
-        xcodebuild
-        -sdk iphonesimulator
-        -configuration Debug
-        -workspace githubActionPractice.xcworkspace
-        -scheme githubActionPractice
-        -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
-        -skip-testing:githubActionPracticeUITests
-        clean test
-        | bundle exec xcpretty --report html
-        
+    # - name: Xcode test
+    #   run: set -o pipefail &&
+    #     xcodebuild
+    #     -sdk iphonesimulator
+    #     -configuration Debug
+    #     -workspace githubActionPractice.xcworkspace
+    #     -scheme githubActionPractice
+    #     -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+    #     -skip-testing:githubActionPracticeUITests
+    #     clean test
+    #     | bundle exec xcpretty --report html
+
 
 #
 #  info:
