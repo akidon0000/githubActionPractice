@@ -2,7 +2,7 @@ PODS:
   - KeychainAccess (4.2.2)
 
 DEPENDENCIES:
-  - KeychainAccess (~> 4)
+  - KeychainAccess (~> 4.2)
 
 SPEC REPOS:
   trunk:
@@ -11,6 +11,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
 
-PODFILE CHECKSUM: b73a07d474160268450d2f4f2f0155e735e1c250
+PODFILE CHECKSUM: 7371082ff3d899ad379cc721793ef07183a92078
 
 COCOAPODS: 1.11.2
