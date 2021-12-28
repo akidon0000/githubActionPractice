@@ -1,6 +1,10 @@
 name: CI
 
-on: [push] # git push をトリガーとする
+on:
+  push:
+    branches:
+      - main
+      - develop
 
 # 動作バージョンの指定
 env:
