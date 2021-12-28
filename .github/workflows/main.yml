@@ -26,6 +26,9 @@ jobs:
     #    # CocoaPodsをインストールする
     - name: CocoaPods
       run: pod install
+      
+    - name: show
+      run: ls
 
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild -project githubActionPractice.xcworkspace -sdk iphonesimulator -configuration Debug build
